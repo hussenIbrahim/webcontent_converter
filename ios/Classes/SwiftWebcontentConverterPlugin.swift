@@ -82,6 +82,7 @@ public class SwiftWebcontentConverterPlugin: NSObject, FlutterPlugin {
         case "contentToPDF":
             let path = arguments!["savedPath"] as? String
             let savedPath = URL.init(string: path!)?.path
+              print("savedPath = \(savedPath)    \(path)")
             let format = arguments!["format"] as? Dictionary<String, Double>
             let margins = arguments!["margins"] as? Dictionary<String, Double>
             self.webView = WKWebView()
