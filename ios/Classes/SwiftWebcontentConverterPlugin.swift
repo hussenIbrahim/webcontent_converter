@@ -81,7 +81,7 @@ public class SwiftWebcontentConverterPlugin: NSObject, FlutterPlugin {
             break
         case "contentToPDF":
             let path = arguments!["savedPath"] as? String
-            let savedPath = URL.init(string: path!)?.path
+            let savedPath = path
               print("savedPath = \(savedPath)    \(path)")
             let format = arguments!["format"] as? Dictionary<String, Double>
             let margins = arguments!["margins"] as? Dictionary<String, Double>
@@ -209,9 +209,9 @@ extension WKWebView {
     
     // Save pdf file in file document directory
     func saveWebViewPdf(data: NSMutableData, savedPath: String) -> String? {
-        let url = URL.init(string: savedPath)!
+        let url = savedPath 
         if data.write(toFile: savedPath, atomically: true) {
-            return url.path
+            return url
         } else {
             return nil
         }
